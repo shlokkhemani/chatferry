@@ -138,6 +138,26 @@ One person, one browser, your own subscriptions. That's the intended use case.
 - **One browser at a time.** A file lock prevents concurrent browser access across processes.
 - **No conversation threading.** Each `ask` starts a new conversation. No multi-turn support yet.
 
+## Using ChatFerry from AI Agents
+
+ChatFerry ships with a [SKILL.md](SKILL.md) — a structured reference that teaches coding agents (Claude Code, Codex, etc.) how to use the CLI correctly. It covers the full command surface, JSON output shapes, model selection, error handling, and operational patterns.
+
+To use it, point your agent at the skill file:
+
+```bash
+# Claude Code — add to your CLAUDE.md or project instructions:
+Read SKILL.md before using chatferry.
+
+# Or reference it directly in a prompt:
+"Use the chatferry CLI as documented in SKILL.md to submit this prompt to GPT-5.4 Pro."
+```
+
+The skill teaches agents to:
+- Always use `--json` for machine-readable output
+- Discover models with `chatferry models --json` before selecting one
+- Use `--no-wait` for long-running prompts and poll with `wait`/`result`
+- Read the `.meta.json` sidecar for exact prompt/response data
+
 ## Contributing
 
 See [CONTRIBUTING.md](CONTRIBUTING.md).
