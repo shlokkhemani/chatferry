@@ -321,7 +321,7 @@ async function waitForDeferredChatGptCompletion(args: {
     await args.page.goto(chatUrl, { waitUntil: "domcontentloaded", timeout: CONVERSATION_NAV_TIMEOUT_MS });
     await args.page.waitForTimeout(CONVERSATION_SETTLE_MS);
     if (!(await args.providerAdapter.isLoggedIn(args.page))) {
-      throw new Error("chatgpt session expired during deferred completion polling. Run: npm exec -- chatferry login chatgpt");
+      throw new Error("chatgpt session expired during deferred completion polling. Run: chatferry login chatgpt");
     }
 
     const snapshot = await inspectCurrentConversation({

@@ -226,8 +226,8 @@ async function login(providerName: ProviderName): Promise<void> {
       [
         "",
         "Next steps:",
-        `- npm exec -- chatferry models ${providerName}`,
-        `- npm exec -- chatferry ask ${providerName} "Reply with exactly: hello"`,
+        `- chatferry models ${providerName}`,
+        `- chatferry ask ${providerName} "Reply with exactly: hello"`,
         "",
       ].join("\n"),
     );
@@ -255,9 +255,9 @@ async function setupCommand(provider?: ProviderName): Promise<void> {
       "Setup complete.",
       "",
       "Try one of these next:",
-      "- npm exec -- chatferry models chatgpt",
-      '- npm exec -- chatferry ask chatgpt "Reply with exactly: hello"',
-      '- npm exec -- chatferry ask claude "Reply with exactly: hello"',
+      "- chatferry models chatgpt",
+      '- chatferry ask chatgpt "Reply with exactly: hello"',
+      '- chatferry ask claude "Reply with exactly: hello"',
       "",
     ].join("\n"),
   );
@@ -281,7 +281,7 @@ async function listModelsCommand(providerName: ProviderName, json: boolean): Pro
 
   await withProviderSession(providerName, async (provider, page) => {
     if (!(await provider.isLoggedIn(page))) {
-      throw new Error(`${providerName} is not logged in. Run: npm exec -- chatferry login ${providerName}`);
+      throw new Error(`${providerName} is not logged in. Run: chatferry login ${providerName}`);
     }
 
     const catalog = await provider.listModels(page);

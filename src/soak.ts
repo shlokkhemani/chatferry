@@ -233,7 +233,7 @@ async function runProviderSoak(providerName: ProviderName, runId: string): Promi
   try {
     await provider.gotoHome(page);
     if (!(await provider.isLoggedIn(page))) {
-      throw new Error(`${providerName} is not logged in. Run: npm exec -- chatferry login ${providerName}`);
+      throw new Error(`${providerName} is not logged in. Run: chatferry login ${providerName}`);
     }
 
     for (const prompt of SOAK_PROMPTS) {

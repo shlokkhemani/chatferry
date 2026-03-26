@@ -212,7 +212,7 @@ export async function executeAskOperationInSession(args: {
   onStage?: (update: AskStageUpdate) => Promise<void> | void;
 }): Promise<AskExecutionResult> {
   if (!(await args.providerAdapter.isLoggedIn(args.page))) {
-    throw new Error(`${args.provider} is not logged in. Run: npm exec -- chatferry login`);
+    throw new Error(`${args.provider} is not logged in. Run: chatferry login`);
   }
 
   let observedModel: ModelInfo | null = null;
@@ -365,13 +365,13 @@ export async function executeReadOperationInSession(args: {
   artifactDir: string | null;
 }> {
   if (!(await args.providerAdapter.isLoggedIn(args.page))) {
-    throw new Error(`${args.provider} is not logged in. Run: npm exec -- chatferry login`);
+    throw new Error(`${args.provider} is not logged in. Run: chatferry login`);
   }
 
   await args.page.goto(args.url, { waitUntil: "domcontentloaded", timeout: CONVERSATION_NAV_TIMEOUT_MS });
   await args.page.waitForTimeout(CONVERSATION_SETTLE_MS);
   if (!(await args.providerAdapter.isLoggedIn(args.page))) {
-    throw new Error(`${args.provider} session expired during navigation. Run: npm exec -- chatferry login ${args.provider}`);
+    throw new Error(`${args.provider} session expired during navigation. Run: chatferry login ${args.provider}`);
   }
   await args.providerAdapter.prepareConversationForRead(args.page);
   const turns = await args.providerAdapter.extractConversation(args.page);
@@ -435,13 +435,13 @@ export async function executeReloadOperationInSession(args: {
   validationMode?: CaptureValidationMode;
 }): Promise<AskExecutionResult> {
   if (!(await args.providerAdapter.isLoggedIn(args.page))) {
-    throw new Error(`${args.provider} is not logged in. Run: npm exec -- chatferry login`);
+    throw new Error(`${args.provider} is not logged in. Run: chatferry login`);
   }
 
   await args.page.goto(args.chatUrl, { waitUntil: "domcontentloaded", timeout: CONVERSATION_NAV_TIMEOUT_MS });
   await args.page.waitForTimeout(CONVERSATION_SETTLE_MS);
   if (!(await args.providerAdapter.isLoggedIn(args.page))) {
-    throw new Error(`${args.provider} session expired during navigation. Run: npm exec -- chatferry login ${args.provider}`);
+    throw new Error(`${args.provider} session expired during navigation. Run: chatferry login ${args.provider}`);
   }
   const capture = await captureConversationWithDeferredRecovery({
     provider: args.provider,
