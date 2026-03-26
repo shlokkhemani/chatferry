@@ -116,6 +116,17 @@ CHATFERRY_HOME=/path/to/data chatferry ask chatgpt "hello"
 
 Provider UI elements are mapped via YAML selector configs in `selectors/`. When a provider updates their UI, update the selector file — no code changes needed.
 
+## Important: Personal Use Only
+
+ChatFerry is a personal productivity tool. It automates *your own* browser sessions with accounts *you* pay for. It is **not** designed for:
+
+- Mass automation or scraping
+- Circumventing rate limits or usage policies
+- Running on behalf of other users
+- Any use that violates ChatGPT or Claude terms of service
+
+One person, one browser, your own subscriptions. That's the intended use case.
+
 ## Known Limitations
 
 - **Desktop only.** Requires a visible browser window. No headless mode.

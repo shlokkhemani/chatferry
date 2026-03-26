@@ -1,7 +1,7 @@
 {
   "name": "chatferry",
   "version": "0.1.0",
-  "description": "Talk to ChatGPT and Claude from your terminal. No API keys — uses your existing browser sessions.",
+  "description": "Personal CLI to talk to ChatGPT and Claude from your terminal. No API keys — uses your own browser sessions.",
   "type": "module",
   "license": "MIT",
   "author": "Shlok Khemani",
