@@ -1,5 +1,9 @@
 # ChatFerry
 
+<p align="center">
+  <img src="assets/hero.png" alt="ChatFerry — ferrying prompts from your terminal to AI chat UIs" width="600">
+</p>
+
 Talk to ChatGPT and Claude from your terminal. No API keys — uses your existing browser sessions.
 
 ChatFerry opens a real Chromium browser, navigates to ChatGPT or Claude, types your prompt, waits for the response, and saves it as a markdown file. It uses persistent browser profiles so you log in once and stay logged in.
