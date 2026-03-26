@@ -1,0 +1,86 @@
+version: 1
+provider: claude
+url: https://claude.ai/new
+
+selectors:
+  input:
+    description: "Main prompt input"
+    primary: 'div[data-testid="chat-input"][role="textbox"]'
+    fallbacks:
+      - '[data-testid="chat-input"]'
+      - 'div.ProseMirror[role="textbox"]'
+      - 'div.ProseMirror[contenteditable="true"]'
+
+  send_button:
+    description: "Send message button"
+    primary: 'button[aria-label="Send message"]'
+    fallbacks:
+      - 'button[aria-label="Send Message"]'
+      - 'fieldset button[type="button"]:last-of-type'
+      - 'button:has-text("Send")'
+
+  stop_button:
+    description: "Stop generating button"
+    primary: 'button[aria-label="Stop Response"]'
+    fallbacks:
+      - 'button[aria-label="Stop response"]'
+      - 'button:has-text("Stop")'
+
+  response_container:
+    description: "Assistant response container"
+    primary: '.font-claude-response'
+    fallbacks:
+      - '.standard-markdown'
+      - '.font-claude-message'
+      - '[data-is-streaming="false"] .font-claude-response'
+
+  user_message:
+    description: "User message container"
+    primary: '[data-testid="user-message"]'
+    fallbacks:
+      - '[class*="user-message"]'
+      - '.font-user-message'
+
+  conversation_messages:
+    description: "All conversation messages in DOM order"
+    primary: '[data-testid="user-message"], [data-is-streaming]'
+    fallbacks:
+      - '[data-testid="user-message"], .font-claude-response'
+      - '[class*="user-message"], [data-is-streaming]'
+
+  model_picker:
+    description: "Model picker trigger"
+    primary: 'button[data-testid="model-selector-dropdown"]'
+    fallbacks:
+      - 'button:has-text("Sonnet")'
+      - 'button:has-text("Opus")'
+      - 'button:has-text("Haiku")'
+      - 'button[aria-haspopup="menu"]'
+
+  model_menu:
+    description: "Open model menu container"
+    primary: '[role="menu"]'
+    fallbacks:
+      - '[role="listbox"]'
+      - '[data-radix-popper-content-wrapper]'
+
+  model_option:
+    description: "Individual model option"
+    primary: '[role="menuitem"]'
+    fallbacks:
+      - '[role="menuitemradio"]'
+      - '[role="menuitem"]'
+      - '[role="option"]'
+
+  new_chat:
+    description: "New conversation entry point"
+    primary: 'a[href="/new"]:has-text("New chat")'
+    fallbacks:
+      - 'a[href="/new"]'
+      - 'button:has-text("New chat")'
+
+  login_indicator:
+    description: "Main chat composer"
+    primary: '[data-testid="chat-input"]'
+    fallbacks:
+      - 'div.ProseMirror[contenteditable="true"]'

@@ -1,0 +1,97 @@
+version: 1
+provider: chatgpt
+url: https://chatgpt.com/
+
+selectors:
+  input:
+    description: "Main prompt input"
+    primary: "#prompt-textarea"
+    fallbacks:
+      - 'textarea[data-id="root"]'
+      - 'div[contenteditable="true"][data-id]'
+      - 'div[contenteditable="true"]'
+
+  send_button:
+    description: "Send prompt button"
+    primary: 'button[data-testid="send-button"]'
+    fallbacks:
+      - 'button[aria-label="Send prompt"]'
+      - 'form button[type="submit"]'
+
+  stop_button:
+    description: "Stop generation button"
+    primary: 'button[data-testid="stop-button"]'
+    fallbacks:
+      - 'button[aria-label="Stop generating"]'
+      - 'button:has-text("Stop")'
+
+  response_container:
+    description: "Assistant response container"
+    primary: '[data-message-author-role="assistant"]'
+    fallbacks:
+      - '[data-message-author-role="assistant"] .markdown'
+      - '[data-testid^="conversation-turn-"] .markdown'
+
+  user_message:
+    description: "User message container"
+    primary: '[data-message-author-role="user"]'
+    fallbacks:
+      - '[data-testid^="conversation-turn-"] [data-message-author-role="user"]'
+
+  conversation_messages:
+    description: "All conversation message containers in DOM order"
+    primary: '[data-message-author-role]'
+    fallbacks:
+      - '[data-message-author-role="user"], [data-message-author-role="assistant"]'
+      - '[data-testid^="conversation-turn-"] [data-message-author-role]'
+
+  model_picker:
+    description: "Model picker trigger"
+    primary: 'button[data-testid="model-switcher-dropdown-button"]'
+    fallbacks:
+      - 'button[aria-label="Model selector"]'
+      - 'button[data-testid="model-selector"]'
+
+  model_menu:
+    description: "Open model menu container"
+    primary: '[role="menu"]'
+    fallbacks:
+      - '[role="listbox"]'
+      - '[data-radix-popper-content-wrapper]'
+
+  model_option:
+    description: "Individual model option"
+    primary: '[role="menuitem"]'
+    fallbacks:
+      - '[role="menuitemradio"]'
+      - '[role="option"]'
+
+  effort_picker:
+    description: "Composer effort pill for Pro"
+    primary: 'button.__composer-pill'
+    fallbacks:
+      - 'button[aria-haspopup="menu"].__composer-pill'
+      - 'button:has-text("Extended")'
+      - 'button:has-text("Standard")'
+
+  effort_option:
+    description: "Individual thinking effort option"
+    primary: '[role="menuitemradio"]'
+    fallbacks:
+      - '[role="menuitem"]'
+      - '[role="option"]'
+
+  new_chat:
+    description: "New conversation button"
+    primary: 'a[data-testid="create-new-chat-button"]:has-text("New chat")'
+    fallbacks:
+      - 'a[data-testid="create-new-chat-button"]'
+      - 'a[href="/"]'
+      - 'button:has-text("New chat")'
+
+  login_indicator:
+    description: "Account/profile surface"
+    primary: '[data-testid="accounts-profile-button"]'
+    fallbacks:
+      - '[data-testid="profile-button"]'
+      - 'button[aria-label="Open profile menu"]'

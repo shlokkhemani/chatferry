@@ -1,0 +1,15 @@
+src/
+*.test.js
+*.test.ts
+.editorconfig
+.github/
+CONTRIBUTING.md
+HARDENING.md
+STATUS.md
+PLAN.md
+REVIEW-NARRATIVE.md
+LATER.md
+AGENTS.md
+CLAUDE.md
+repomix-output.txt
+.repomixignore

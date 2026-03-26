@@ -1,0 +1,21 @@
+dist/
+node_modules/
+*.tgz
+.DS_Store
+*.log
+.env
+.env.*
+repomix-output.txt
+.repomixignore
+
+# Internal docs (not for open-source distribution)
+HARDENING.md
+STATUS.md
+PLAN.md
+REVIEW-NARRATIVE.md
+LATER.md
+AGENTS.md
+CLAUDE.md
+src/README.md
+src/providers/README.md
+selectors/README.md
