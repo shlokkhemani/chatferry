@@ -138,6 +138,14 @@ One person, one browser, your own subscriptions. That's the intended use case.
 
 See [CONTRIBUTING.md](CONTRIBUTING.md).
 
+## Disclaimer
+
+ChatFerry is not affiliated with, endorsed by, or associated with OpenAI or Anthropic. ChatGPT is a trademark of OpenAI. Claude is a trademark of Anthropic.
+
+This tool automates a standard web browser. It does not reverse-engineer, decompile, or access any private APIs. Users are solely responsible for ensuring their use complies with the terms of service of any providers they access through this tool.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND. See [LICENSE](LICENSE) for the full MIT license text.
+
 ## License
 
 [MIT](LICENSE)
